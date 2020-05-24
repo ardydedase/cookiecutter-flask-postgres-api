@@ -35,7 +35,7 @@ jobs:
         ls -al
         pip install -r requirements.txt
 
-    - name: Format and lint
+    - name: Run tests
       working-directory: ${{env.reference-api-directory}}
       run: |
         py.test -vv
