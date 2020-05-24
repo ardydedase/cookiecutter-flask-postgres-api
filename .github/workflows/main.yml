@@ -1,0 +1,40 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  reference-api-directory: ./reference-api
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Python
+      uses: actions/setup-python@v1.2.0
+
+    - name: Install cookiecutter
+      run: pip install cookiecutter        
+
+    - name: Cookiecut the template
+      run: cookiecutter $GITHUB_WORKSPACE --no-input
+
+    - name: Install npm packages
+      working-directory: ${{env.reference-api-directory}}
+      run: |
+        pip install -r requirements.txt
+
+    - name: Format and lint
+      working-directory: ${{env.reference-api-directory}}
+      run: |
+        py.test -vv
