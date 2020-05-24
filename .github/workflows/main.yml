@@ -29,9 +29,10 @@ jobs:
     - name: Cookiecut the template
       run: cookiecutter $GITHUB_WORKSPACE --no-input
 
-    - name: Install npm packages
+    - name: Install Python packages
       working-directory: ${{env.reference-api-directory}}
       run: |
+        ls -al
         pip install -r requirements.txt
 
     - name: Format and lint
