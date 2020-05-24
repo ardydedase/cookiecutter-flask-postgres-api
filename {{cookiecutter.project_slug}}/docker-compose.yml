@@ -4,19 +4,19 @@ services:
     image: postgres:12.2
     restart: always
     environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: mydb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
     ports:
-      - "54320:5432"
+      - "5432:5432"
   run-migrations:
     build: .
     restart: on-failure
     environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_URL: ${POSTGRES_URL}
+      POSTGRES_DB: mydb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_URL: db:5432
     command: > 
       bash -c "
         flask db init && 
@@ -28,10 +28,10 @@ services:
     build: .
     restart: on-failure
     environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_URL: ${POSTGRES_URL}    
+      POSTGRES_DB: mydb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_URL: db:5432
     ports:
       - "5000:5000"
     depends_on: 
