@@ -11,7 +11,7 @@ on:
     branches: [ master ]
 
 env:
-  reference-api-directory: ./reference-api
+  reference-api-directory: ./flask-postgres-api
 
 jobs:
   build:

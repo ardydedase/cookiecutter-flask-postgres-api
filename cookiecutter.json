@@ -1,6 +1,6 @@
 {
 	"github_username": "ardydedase",
-	"project_name": "flask postgres api ref app",
+	"project_name": "flask postgres api",
 	"project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
 	"project_short_description": "flask postgres api reference app",
 	"version": "0.1.0",
