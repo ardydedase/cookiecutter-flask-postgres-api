@@ -24,7 +24,7 @@ Initialise environment variables. The `.env` is used in `docker-compose.yml`.
 ```
 export FLASK_APP="src/main.py"
 export POSTGRES_URL="127.0.0.1:5432"
-export POSTGRES_DB="{{cookiecutter.project_slug}}"
+export POSTGRES_DB="mydb"
 export POSTGRES_USER="postgres"
 export POSTGRES_PASSWORD="example"
 ```
@@ -54,14 +54,18 @@ For production.
 cd src && gunicorn main:app
 ```
 
-## Build and run commands in render.com
+## Continuous Deployment Pipeline
 
-Build command
-```
-pip install -r requirements.txt && ./run-migrations.sh
-```
+Go live with a Continuous Deployment Pipeline using GitHub and Render's Infrastructure as code.
 
-Run the app
-```
-cd src && gunicorn app:app
-```
+### Create your repository on GitHub
+
+Ensure that you are using the GitHub username and project slug that you have entered earlier when cookie cutting.
+This will match the settings in the [render.yaml](render.yaml) file.
+
+Your repo should be accessible in: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
+
+* Check the deployed API: `<API URL>/healthcheck`
+* Ensure that you have deleted your resources from Render when you're done.

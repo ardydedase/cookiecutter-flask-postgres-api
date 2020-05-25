@@ -1,0 +1,42 @@
+services:
+- type: web
+  name: {{cookiecutter.project_slug}}
+  env: python
+  repo: https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}.git
+  plan: starter
+  branch: master
+  healthCheckPath: /healthcheck
+  # Use ./migrations.sh when running for the first time
+  buildCommand: "pip install -r requirements.txt && ./run-migrations.sh"
+  startCommand: "cd src && gunicorn main:app"
+  envVars:
+  - fromGroup: {{cookiecutter.project_slug}}-settings
+  - key: POSTGRES_URL
+    fromDatabase:
+      name: {{cookiecutter.project_slug}}-db
+      property: host
+  - key: POSTGRES_USER
+    fromDatabase:
+      name: {{cookiecutter.project_slug}}-db
+      property: user
+  - key: POSTGRES_PASSWORD
+    fromDatabase:
+      name: {{cookiecutter.project_slug}}-db
+      property: password
+  - key: POSTGRES_DB
+    fromDatabase:
+      name: {{cookiecutter.project_slug}}-db
+      property: database 
+
+envVarGroups:
+- name: {{cookiecutter.project_slug}}-settings
+  envVars:
+  - key: ENV
+    value: production
+  - key: FLASK_APP
+    value: src/main.py
+    
+
+databases:
+- name: {{cookiecutter.project_slug}}-db
+  databaseName: mydb

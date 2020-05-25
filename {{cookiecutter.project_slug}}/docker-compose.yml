@@ -4,7 +4,7 @@ services:
     image: postgres:12.2
     restart: always
     environment:
-      POSTGRES_DB: {{cookiecutter.project_slug}}
+      POSTGRES_DB: mydb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: example
     ports:
@@ -13,7 +13,7 @@ services:
     build: .
     restart: on-failure
     environment:
-      POSTGRES_DB: {{cookiecutter.project_slug}}
+      POSTGRES_DB: mydb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: example
       POSTGRES_URL: db:5432
@@ -28,7 +28,7 @@ services:
     build: .
     restart: on-failure
     environment:
-      POSTGRES_DB: {{cookiecutter.project_slug}}
+      POSTGRES_DB: mydb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: example
       POSTGRES_URL: db:5432
