@@ -42,5 +42,6 @@ jobs:
         export POSTGRES_URL="127.0.0.1:54320"
         export POSTGRES_DB="mydb"
         export POSTGRES_USER="postgres"
-        export POSTGRES_PASSWORD="example"      
+        export POSTGRES_PASSWORD="example"
+        flake8 src/
         py.test -vv
