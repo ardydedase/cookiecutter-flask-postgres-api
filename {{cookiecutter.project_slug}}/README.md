@@ -1,5 +1,7 @@
 # {{cookiecutter.project_name}}
 
+![CI](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/workflows/CI/badge.svg?branch=master)
+
 ## Run locally with docker
 
 Use docker-compose
