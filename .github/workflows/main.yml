@@ -35,6 +35,10 @@ jobs:
         ls -al
         pip install -r requirements.txt
 
+    - name: Run flake8
+      working-directory: ${{env.reference-api-directory}}
+      run: flake8 src/
+
     - name: Run tests
       working-directory: ${{env.reference-api-directory}}
       run: |
@@ -43,5 +47,4 @@ jobs:
         export POSTGRES_DB="mydb"
         export POSTGRES_USER="postgres"
         export POSTGRES_PASSWORD="example"
-        flake8 src/
         py.test -vv
