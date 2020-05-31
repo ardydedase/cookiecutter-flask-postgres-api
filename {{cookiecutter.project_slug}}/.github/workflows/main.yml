@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Python
+      uses: actions/setup-python@v1.2.0
+
+    - name: Install Python packages
+      run: |
+        ls -al
+        pip install -r requirements.txt
+
+    - name: Run flake8
+      run: flake8 src/
+
+    - name: Run tests
+      run: |
+        export FLASK_APP="src/main.py"
+        export POSTGRES_URL="127.0.0.1:54320"
+        export POSTGRES_DB="mydb"
+        export POSTGRES_USER="postgres"
+        export POSTGRES_PASSWORD="example"
+        py.test -vv
