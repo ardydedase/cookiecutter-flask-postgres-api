@@ -6,8 +6,6 @@ from repositories import UserRepository
 
 class User(Resource):
     def get(self, username: str):
-        # TODO: error handler
-        # move to another resource
         user = UserRepository.get(username)
         return user, 200
 
