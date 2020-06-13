@@ -4,6 +4,9 @@
 
 Project template for Flask API.
 
+Medium post: [A useful template to help you spin up your next project and start building
+](https://medium.com/better-programming/cookiecutter-template-to-build-and-deploy-your-flask-api-with-postgres-database-20ad99b8dae4).
+
 ## What's included
 * Go live with a Continuous Deployment Pipeline using GitHub and Render's Infrastructure as Code. See sample [IaC file here](https://github.com/ardydedase/flask-postgres-api/blob/master/render.yaml).
 * Works with SQLAlchemy / Postgres DB out of the box.
