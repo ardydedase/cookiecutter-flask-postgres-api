@@ -63,6 +63,8 @@ Install requirements.
 pip install -r requirements.txt
 ```
 
+:warning: For Mac users: Make sure you run `brew install postgresql`. [Stackoverflow](https://stackoverflow.com/questions/35104097/how-to-install-psycopg2-with-pg-config-error)
+
 Initialise environment variables. The `.env` is used in `docker-compose.yml`.
 ```
 export FLASK_APP="src/main.py"
