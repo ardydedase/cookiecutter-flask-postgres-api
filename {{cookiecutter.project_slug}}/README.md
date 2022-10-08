@@ -33,7 +33,7 @@ export POSTGRES_PASSWORD="example"
 
 Run migrations
 ```
-chmod+x run-migrations.sh
+chmod +x run-migrations.sh
 ./run-migrations.sh
 ```
 
