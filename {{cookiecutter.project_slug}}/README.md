@@ -33,7 +33,7 @@ export POSTGRES_PASSWORD="example"
 
 Run migrations
 ```
-chmod+x run-migrations.sh
+chmod +x run-migrations.sh  
 ./run-migrations.sh
 ```
 
@@ -42,6 +42,10 @@ Run flask
 # initialise environment variables
 flask run
 ```
+
+Check endpoint
+
+Open: http://localhost:5000/healthcheck
 
 ## Run tests
 
